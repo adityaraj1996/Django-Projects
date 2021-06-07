@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}BLOGHOME{% endblock title %}
+{% block js %}
+    <script>
+    let previews=document.getElementsByClassName('preview');
+    Array.from(previews).forEach((element))=>{
+        element.innerHTML=element.innerText;
+    })
+   </script>
+    {% endblock js %}
+{% block blogactive %}active{% endblock blogactive %}
+{% block body %}
+<div class="container">
+  <h3 class="my-3">Coding Articles by Icoder:</h3>
+  {% for post in allposts %}
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h4 class="card-title">Post by {{post.author}}</h4>
+    <p class="card-text"><div class="preview">{{ post.content|safe|truncatechars:20}}</div> </p>
+    <a href="{{post.slug}}" class="btn btn-primary">Continue Reading</a>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+
+
+{% endblock body %}

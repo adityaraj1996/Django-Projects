@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}SEARCH{% endblock title %}
+{% block blogactive %}active{% endblock blogactive %}
+{% block body %}
+<div class="container">
+  <h3 class="my-3">Search Results by Icoder:</h3>
+  {% if allposts|length < 1 %}
+  <p>No Search Results found for query : <b>{{ query }}</b></p>
+  {% endif %}
+  {% for post in allposts %}
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h4 class="card-title">Post by {{post.author}}</h4>
+    <p class="card-text">{{ post.content|truncatechars:200 }}</p>
+    <a href="{{post.slug}}" class="btn btn-primary">Continue Reading</a>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+
+
+{% endblock body %}
