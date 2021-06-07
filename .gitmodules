@@ -1,0 +1,3 @@
+[submodule "icoder"]
+	path = icoder
+	url = https://github.com/adityaraj1996/Django-Projects.git
