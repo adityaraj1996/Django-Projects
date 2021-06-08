@@ -1,7 +1,7 @@
-<form method= "post">
+<form action="/urlshort" method= "POST">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit" name="button"> save </button>
   </form>
 
-  <h1> {{ slug }} </h1>
+  <!-- <h1> {{ slug }} </h1> -->
