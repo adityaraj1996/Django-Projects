@@ -29,7 +29,7 @@ def urlshort(request):
     else:
         form = Url()
         # slug = "INVALID URL"
-        return render(request, 'index.html',{'form' : form})    
+        return render(request, 'index.html',{'form' : form})
 
 
         # slug = "INVALID URL"
@@ -47,6 +47,8 @@ def urlshort(request):
 # urlRedirect() — This Function tracks the slug to Original URL and redirects it to Original URL.
 def urlRedirect(request, slugs):
     print(slugs)
-    data = UrlData.objects.get(slug=slugs)
-
-    return redirect(data.url)
+    try:
+        data = UrlData.objects.get(slug=slugs)
+        return redirect(data.url)
+    except Exception:
+        return HttpResponse("INVALID URL")
